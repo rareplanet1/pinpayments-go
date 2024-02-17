@@ -29,13 +29,12 @@ type Contact struct {
 type Entity struct {
 	BusinessRegistrationNumber string `json:"business_registration_number,omitempty"`
 	FullLegalName              string `json:"full_legal_name,omitempty"`
-	IncorporationStatus        string `json:"incorporation_status,omitempty"`
-	RegisteredForGst           bool   `json:"registered_for_gst,omitempty"`
 	AddressLine1               string `json:"address_line_1,omitempty"`
 	AddressLine2               string `json:"address_line_2,omitempty"`
 	AddressLocality            string `json:"address_locality,omitempty"`
 	AddressRegion              string `json:"address_region,omitempty"`
 	AddressPostalCode          string `json:"address_postal_code,omitempty"`
+	AddressCountryCode         string `json:"address_country_code,omitempty"`
 }
 
 type Business struct {
@@ -44,7 +43,7 @@ type Business struct {
 	TypicalProductPrice     string `json:"typical_product_price,omitempty"`
 	TransactionsPerMonth    string `json:"transactions_per_month,omitempty"`
 	AnnualTransactionVolume string `json:"annual_transaction_volume,omitempty"`
-	SellsPhysicalGoods      string `json:"sells_physical_goods,omitempty"`
+	SellsPhysicalGoods      bool   `json:"sells_physical_goods,omitempty"`
 	AverageDeliveryDays     string `json:"average_delivery_days,omitempty"`
 	URL                     string `json:"url,omitempty"`
 }

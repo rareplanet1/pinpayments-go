@@ -25,6 +25,8 @@ type Card struct {
 	IssuingCountry    string `json:"issuing_country,omitempty"`
 	CustomerToken     string `json:"customer_token,omitempty"`
 	Token             string `json:"token,omitempty"`
+	NetworkType       string `json:"network_type,omitempty"`
+	NetworkFormat     string `json:"network_format,omitempty"`
 	PublishableApiKey string `json:"publishable_api_key,omitempty"`
 }
 

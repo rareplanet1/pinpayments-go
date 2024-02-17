@@ -3,9 +3,10 @@ package pinpayments
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/google/go-querystring/query"
 	"net/http"
 	"time"
+
+	"github.com/google/go-querystring/query"
 )
 
 type TransfersService service
@@ -20,6 +21,7 @@ type Transfer struct {
 	TotalCredits   int         `json:"total_credits,omitempty"`
 	CreatedAt      time.Time   `json:"created_at,omitempty"`
 	PaidAt         time.Time   `json:"paid_at,omitempty"`
+	Reference      string      `json:"reference,omitempty"`
 	LineItemsCount int         `json:"line_items_count,omitempty"`
 	BankAccount    BankAccount `json:"bank_account,omitempty"`
 	Recipient      string      `json:"recipient,omitempty"`

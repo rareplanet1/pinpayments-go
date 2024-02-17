@@ -18,7 +18,7 @@ type CustomerRequest struct {
 	PhoneNumber      string `json:"phone_number,omitempty"`
 	Company          string `json:"company,omitempty"`
 	Notes            string `json:"notes,omitempty"`
-	Card             Card   `json:"card,omitempty"`
+	Card             *Card  `json:"card,omitempty"`
 	CardToken        string `json:"card_token,omitempty"`
 	PrimaryCardToken string `json:"primary_card_token,omitempty"`
 }
@@ -29,6 +29,7 @@ type CustomerResponseBody struct {
 	FirstName   string    `json:"first_name,omitempty"`
 	LastName    string    `json:"last_name,omitempty"`
 	PhoneNumber string    `json:"phone_number,omitempty"`
+	Company     string    `json:"company,omitempty"`
 	Notes       string    `json:"notes,omitempty"`
 	CreatedAt   time.Time `json:"created_at,omitempty"`
 	Card        Card      `json:"card,omitempty"`

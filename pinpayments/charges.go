@@ -16,34 +16,41 @@ type Resp struct {
 }
 
 type ChargesRequest struct {
-	Email         string       `json:"email"`
-	Description   string       `json:"description"`
-	Amount        int32        `json:"amount"`
-	IpAddress     string       `json:"ip_address"`
-	Currency      string       `json:"currency,omitempty"`
-	Capture       bool         `json:"capture,omitempty"`
-	Reference     string       `json:"reference,omitempty"`
-	Metadata      Metadata     `json:"metadata,omitempty"`
-	ThreeDSecure  ThreeDSecure `json:"three_d_secure,omitempty"`
-	Card          *Card        `json:"card,omitempty"`
-	CardToken     string       `json:"card_token,omitempty"`
-	CustomerToken string       `json:"customer_token,omitempty"`
+	Email              string             `json:"email"`
+	Description        string             `json:"description"`
+	Amount             int32              `json:"amount"`
+	IpAddress          string             `json:"ip_address"`
+	Currency           string             `json:"currency,omitempty"`
+	Capture            bool               `json:"capture,omitempty"`
+	Reference          string             `json:"reference,omitempty"`
+	Metadata           Metadata           `json:"metadata,omitempty"`
+	ThreeDSecure       ThreeDSecure       `json:"three_d_secure,omitempty"`
+	PlatformAdjustment PlatformAdjustment `json:"platform_adjustment,omitempty"`
+	Card               *Card              `json:"card,omitempty"`
+	CardToken          string             `json:"card_token,omitempty"`
+	CustomerToken      string             `json:"customer_token,omitempty"`
+	PaymentSourceToken string             `json:"payment_source_token,omitempty"`
 }
 
 type ResponseBody struct {
-	Token         string    `json:"token,omitempty"`
-	Success       bool      `json:"success,omitempty"`
-	Amount        int       `json:"amount,omitempty"`
-	Currency      string    `json:"currency,omitempty"`
-	Description   string    `json:"description,omitempty"`
-	Email         string    `json:"email,omitempty"`
-	IpAddress     string    `json:"ip_address,omitempty"`
-	CreatedAt     time.Time `json:"created_at,omitempty"`
-	StatusMessage string    `json:"status_message,omitempty"`
-	ErrorMessage  string    `json:"error_message,omitempty"`
-	Card          Card      `json:"card,omitempty"`
-	Metadata      `json:"metadata,omitempty"`
-	TotalFees     int `json:"total_fees,omitempty"`
+	Token                string    `json:"token,omitempty"`
+	Success              bool      `json:"success,omitempty"`
+	Amount               int32     `json:"amount,omitempty"`
+	Currency             string    `json:"currency,omitempty"`
+	Description          string    `json:"description,omitempty"`
+	Email                string    `json:"email,omitempty"`
+	IpAddress            string    `json:"ip_address,omitempty"`
+	CreatedAt            time.Time `json:"created_at,omitempty"`
+	StatusMessage        string    `json:"status_message,omitempty"`
+	ErrorMessage         string    `json:"error_message,omitempty"`
+	Card                 Card      `json:"card,omitempty"`
+	Metadata             `json:"metadata,omitempty"`
+	TotalFees            int32  `json:"total_fees,omitempty"`
+	MerchantEntitlement  int32  `json:"merchant_entitlement,omitempty"`
+	AuthorisationToken   string `json:"authorisation_token,omitempty"`
+	AuthorisationExpired bool   `json:"authorisation_expired,omitempty"`
+	AuthorisationVoided  bool   `json:"authorisation_voided,omitempty"`
+	Captured             bool   `json:"captured,omitempty"`
 }
 
 type ChargeResponse struct {
@@ -76,6 +83,11 @@ type ThreeDSecure struct {
 	Eci           string `json:"eci,omitempty"`
 	Cavv          string `json:"cavv,omitempty"`
 	TransactionId string `json:"transaction_id,omitempty"`
+}
+
+type PlatformAdjustment struct {
+	Amount   int32  `json:"amount,omitempty"`
+	Currency string `json:"currency,omitempty"`
 }
 
 type Search struct {
